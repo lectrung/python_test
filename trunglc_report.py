@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 x_label_rotation = 15
-working_folder = "/trunglc/git_workspace/python_test"
+working_folder = "/trunglc/data"
 
 list_thread_threshold = [5e3, 1e4, 5e4, 1e5, 2e5, 3e5, 1e6, 2e6]
 list_thread_threshold_title = ["Very Small", "Small", "Normal", "Medium", "High", "Large", "Very Large", "Huge"]
@@ -44,16 +44,18 @@ def writelog(*args):
 
 writelog("Start the report")
 #Load dataset from /python/output/*.csv
-df_summary = pd.read_csv(working_folder + "/output/summary.csv")
+df_summary = pd.read_csv(working_folder + "/summary.csv")
 writelog("df_summary shape:", df_summary.shape)
 df_summary["thread_cat"] = df_summary.apply(lambda x: lambda_threshold(x["threads"]), axis=1)
+df_summary["p_error"] = round(df_summary["errors"] * 100 / df_summary["threads"])
+idf_summary["p_overload"] = round(df_summary["overloads"] * 100 / df_summary["threads"])
 #writelog(df_summary.columns)
 
-df_os = pd.read_csv(working_folder + "/output/os.csv")
+df_os = pd.read_csv(working_folder + "/os.csv")
 writelog("df_os shape:", df_os.shape)
 #writelog(df_os.columns)
 
-df_time = pd.read_csv(working_folder + "/output/time.csv")
+df_time = pd.read_csv(working_folder + "/time.csv")
 writelog("df_time shape:", df_time.shape)
 df_time["thread_cat"] = df_time.apply(lambda x: lambda_threshold(x["threads"]), axis=1)
 #writelog(df_time.columns)
@@ -69,12 +71,21 @@ plt.savefig(working_folder + "/graph/line.png")
 
 plt.clf()
 
-sns.scatterplot(x = "threads", y = "time", hue = "thread_cat", data = df_time).set(title = "PG processing time by Parallel Threads",
+sns.scatterplot(x = "threads", y = "p_error", hue = "thread_cat", data = df_summary).set(title = "Error percent by Parallel Threads",
     xlabel = "Number of parallel threads",
-    ylabel = "PG processing time (ms)")
+    ylabel = "Error percent")
 plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
-plt.savefig(working_folder + "/graph/line1.png")
+plt.savefig(working_folder + "/graph/error.png")
+
+plt.clf()
+
+sns.scatterplot(x = "threads", y = "p_overload", hue = "thread_cat", data = df_summary).set(title = "Overload percent by Parallel Threads",
+            xlabel = "Number of parallel threads",
+                ylabel = "Overload percent")
+plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.xticks(rotation = x_label_rotation)
+plt.savefig(working_folder + "/graph/overload.png")
 
 plt.clf()
 

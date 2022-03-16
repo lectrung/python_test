@@ -238,15 +238,9 @@ def get_step(n):
         return 500
 
     if n < 1e5:
-        return 5000
+        return 10000
 
-    if n < 2e5:
-        return 8000
-
-    if n < 3e5:
-        return 15000
-
-    return 30000
+    return 50000
 
 time_start = datetime.now()
 writelog("Start the test ...")
@@ -285,7 +279,7 @@ while True:
     if n_iter > config_data[1]:
         break
 
-list_thread_per_second.append(n_iter)
+#list_thread_per_second.append(n_iter)
 #print(list_thread_per_second)
 #print(len(list_thread_per_second))
 #exit()
