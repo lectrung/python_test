@@ -62,17 +62,26 @@ df_time["thread_cat"] = df_time.apply(lambda x: lambda_threshold(x["threads"]), 
 sns.scatterplot(x = "threads", y = "avg", hue = "thread_cat", data = df_summary).set(title = "PG processing time by Parallel Threads", 
     xlabel = "Number of parallel threads",
     ylabel = "Average PG processing time (ms)")
-plt.legend(title = 'thread_cat', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/line.png")
 #plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
 
 plt.clf()
 
+sns.scatterplot(x = "threads", y = "time", hue = "thread_cat", data = df_time).set(title = "PG processing time by Parallel Threads",
+    xlabel = "Number of parallel threads",
+    ylabel = "PG processing time (ms)")
+plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.xticks(rotation = x_label_rotation)
+plt.savefig(working_folder + "/graph/line1.png")
+
+plt.clf()
+
 sns.boxplot(x = "thread_cat", y = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
     xlabel = "Number of parallel threads",
     ylabel = "PG processing time (ms)")
-plt.legend(title = 'thread_cat', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/boxplot.png")
 
