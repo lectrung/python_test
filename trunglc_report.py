@@ -90,4 +90,9 @@ plt.xlim(-10, 25000)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/histogram.png")
 
+plt.clf()
+
+sns.displot(x = "cpu_percent", data = df_os, bins = 200).set(title = "CPU Usage")
+plt.savefig(working_folder + "/graph/histogram1.png")
+
 writelog("End the report")
