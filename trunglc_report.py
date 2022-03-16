@@ -76,7 +76,15 @@ plt.legend(title = 'thread_cat', loc = 'upper left', labels = list_thread_thresh
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/boxplot.png")
 
-sns.displot(x = "time", data = df_time, bins = 500).set(title = "PG processing time by Parallel Threads",
+plt.clf()
+
+sns.boxplot(y = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
+    ylabel = "PG processing time (ms)")
+plt.savefig(working_folder + "/graph/boxplot1.png")
+
+plt.clf()
+
+sns.displot(x = "time", data = df_time, bins = 200).set(title = "PG processing time by Parallel Threads",
     xlabel = "PG processing time (ms)")
 plt.xlim(-10, 25000)
 plt.xticks(rotation = x_label_rotation)
