@@ -1,1 +1,5 @@
 nohup sh run.sh > /python/log/test.txt&
+
+#For backup code
+
+zip -r /backup/trunglc_20220316.zip /trunglc
