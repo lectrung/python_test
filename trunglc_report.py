@@ -39,9 +39,10 @@ writelog("df_time shape:", df_time.shape)
 #writelog(df_time.columns)
 
 #Visualization
-sns.lineplot(x = "threads", y = "avg", data = df_summary).set(title = "PG processing time by Parallel Threads")
-plt.xlabel("Number of parallel threads")
-plt.ylabel("Average PG processing time")
+sns.scatterplot(x = "threads", y = "avg", data = df_summary).set(title = "PG processing time by Parallel Threads", 
+        xlabel = "Number of parallel threads",
+        ylabel = "Average PG processing time (ms)")
+plt.xticks(rotation=45)
 plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
 
 writelog("End the report")
