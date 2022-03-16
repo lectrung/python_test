@@ -55,3 +55,4 @@ Memory thresold = 60
 {'threads': 25500, 'errors': 0, 'overloads': 7268, 'max': 19687.907, 'min': 0.6759999999999999, 'avg': 2403.3268693725486, 'cpu_count': 2, 'cpu_percent': 94.7, 'memory_percent': 13.0, 'disk_io_read': 47783311, 'disk_io_write': 624189454}
 {'threads': 26000, 'errors': 0, 'overloads': 7699, 'max': 127593.503, 'min': 0.634, 'avg': 12226.55242953846, 'cpu_count': 2, 'cpu_percent': 99.9, 'memory_percent': 13.7, 'disk_io_read': 48679210, 'disk_io_write': 628985393}
 {'threads': 26500, 'errors': 0, 'overloads': 7991, 'max': 9164.365, 'min': 0.619, 'avg': 1758.207598226415, 'cpu_count': 2, 'cpu_percent': 100.0, 'memory_percent': 16.0, 'disk_io_read': 48679210, 'disk_io_write': 654142136}
+{'threads': 27000, 'errors': 0, 'overloads': 7590, 'max': 17898.546, 'min': 0.657, 'avg': 2939.298042777778, 'cpu_count': 2, 'cpu_percent': 96.3, 'memory_percent': 13.5, 'disk_io_read': 48679210, 'disk_io_write': 670120180}
