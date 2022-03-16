@@ -36,3 +36,8 @@ df_summary shape:(292, 11)
 df_os shape:(342058, 6)
 df_time shape:(1141720, 2)
 End the report
+Start the report
+df_summary shape:(309, 11)
+df_os shape:(377686, 6)
+df_time shape:(1260720, 2)
+End the report

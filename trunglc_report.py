@@ -43,6 +43,7 @@ sns.scatterplot(x = "threads", y = "avg", data = df_summary).set(title = "PG pro
         xlabel = "Number of parallel threads",
         ylabel = "Average PG processing time (ms)")
 plt.xticks(rotation=45)
-plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
+plt.savefig(working_folder + "/graph/report1.png")
+#plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
 
 writelog("End the report")
