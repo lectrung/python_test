@@ -39,7 +39,7 @@ writelog("df_time shape:", df_time.shape)
 #writelog(df_time.columns)
 
 #Visualization
-sns.boxplot(x = df_summary["avg"], y = df_summary["threads"]);
+sns.boxplot(x = df_summary["threads"], y = df_summary["avg"]);
 plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
 
 writelog("End the report")
