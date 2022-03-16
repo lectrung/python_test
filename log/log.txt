@@ -99,3 +99,62 @@ Memory thresold = 60
 {'threads': 47500, 'errors': 0, 'overloads': 13711, 'max': 13289.815, 'min': 0.636, 'avg': 1482.2893854736842, 'cpu_count': 2, 'cpu_percent': 99.0, 'memory_percent': 19.6, 'disk_io_read': 48679228, 'disk_io_write': 1520022378}
 {'threads': 48000, 'errors': 0, 'overloads': 14282, 'max': 116473.049, 'min': 0.626, 'avg': 7822.665275833334, 'cpu_count': 2, 'cpu_percent': 99.6, 'memory_percent': 19.6, 'disk_io_read': 48679229, 'disk_io_write': 1533198413}
 {'threads': 48500, 'errors': 0, 'overloads': 14501, 'max': 314698.749, 'min': 0.634, 'avg': 8135.418496, 'cpu_count': 2, 'cpu_percent': 100.0, 'memory_percent': 22.0, 'disk_io_read': 48679231, 'disk_io_write': 1543344357}
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+Start the test ...
+Run test script from: 500 to: 4000001
+CPU threshold = 60
+Memory thresold = 60
+{'threads': 500, 'errors': 0, 'overloads': 0, 'max': 277.384, 'min': 0.638, 'avg': 108.715428, 'cpu_count': 2, 'cpu_percent': 35.1, 'memory_percent': 9.0, 'disk_io_read': 301887, 'disk_io_write': 126374}
+{'threads': 1000, 'errors': 0, 'overloads': 4, 'max': 1196.11, 'min': 0.615, 'avg': 328.72025299999996, 'cpu_count': 2, 'cpu_percent': 60.9, 'memory_percent': 9.3, 'disk_io_read': 301887, 'disk_io_write': 126374}
+{'threads': 1500, 'errors': 0, 'overloads': 164, 'max': 2199.423, 'min': 0.687, 'avg': 853.4789000000001, 'cpu_count': 2, 'cpu_percent': 68.9, 'memory_percent': 9.7, 'disk_io_read': 301887, 'disk_io_write': 126376}

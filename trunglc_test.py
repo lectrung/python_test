@@ -207,7 +207,8 @@ def check_db(url, index, n_threads):
     if max_time < pg.time:
         max_time = pg.time
 
-    list_times.append(pg.time)
+    if pg.time > 0:
+        list_times.append(pg.time)
 
 def parse_tuple(string):
     try:
@@ -232,6 +233,21 @@ def writelog(*args):
             f.write(str(x))
         f.write("\n")
 
+def get_step(n):
+    if n < 1e4:
+        return 500
+
+    if n < 1e5:
+        return 5000
+
+    if n < 2e5:
+        return 8000
+
+    if n < 3e5:
+        return 15000
+
+    return 30000
+
 time_start = datetime.now()
 writelog("Start the test ...")
 
@@ -243,22 +259,37 @@ list_import_files = glob.glob(import_folder + "/*.csv")
 total_import_files = len(list_import_files)
 
 #Read tuple from file config
-#The tuple with format (from_thread, to_thread, increase_step, cpu_threshold, memory_threshold, ratio_threshold, summary_file, os_file, time_file)
+#The tuple with format (from_thread, to_thread, cpu_threshold, memory_threshold, ratio_threshold, summary_file, os_file, time_file)
 config_file = "/trunglc/git_workspace/python_test/input/config.txt"
 with open(config_file, "r") as f:
     config_str = f.read()
 #writelog(config_str)
 config_data = parse_tuple(config_str)
-writelog("Run test script from: ", config_data[0], " to: ", config_data[1], " step:", config_data[2])
-writelog("CPU threshold = ", config_data[3])
-writelog("Memory thresold = ", config_data[4])
+writelog("Run test script from: ", config_data[0], " to: ", config_data[1])
+writelog("CPU threshold = ", config_data[2])
+writelog("Memory thresold = ", config_data[3])
 
-cpu_threshold = config_data[3]
-memory_threshold = config_data[4]
-ratio_threshold = config_data[5]
+cpu_threshold = config_data[2]
+memory_threshold = config_data[3]
+ratio_threshold = config_data[4]
 
-#Create a list of benchmark start with 1000 and end with 10000, increased by 500
-list_thread_per_second = range(config_data[0], config_data[1] + 1, config_data[2])
+step = 0
+
+list_thread_per_second = []
+n_iter = config_data[0]
+
+while True:
+    list_thread_per_second.append(n_iter)
+    step = get_step(n_iter)
+    n_iter = n_iter + step
+    if n_iter > config_data[1]:
+        break
+
+list_thread_per_second.append(n_iter)
+#print(list_thread_per_second)
+#print(len(list_thread_per_second))
+#exit()
+
 #This below code will choose a random csv from /home mountpoint and choose some random URL
 #url = get_random_URL()
 #I reboot the Server and I don't know why the /home mountpoint is lost. So I have to assign the test url manually
@@ -273,18 +304,18 @@ list_env = []
 
 lambda_overload = lambda s, c, m : True if (s.get('cpu_percent') > c or s.get('memory_percent') > m) else False
 
-summary_file = config_data[6]
+summary_file = config_data[5]
 summary_header = "threads,errors,overloads,max,min,avg,cpu_count,cpu_percent,memory_percent,disk_io_read,disk_io_write"
 
 with open(summary_file, 'w') as f:
     f.write(summary_header + "\n")
 
-os_file = config_data[7]
+os_file = config_data[6]
 os_header = "threads,cpu_count,cpu_percent,memory_percent,disk_io_read,disk_io_write"
 with open(os_file, 'w') as f:
     f.write(os_header + "\n")
 
-time_file = config_data[8]
+time_file = config_data[7]
 time_header = "threads,time"
 with open(time_file, 'w') as f:
     f.write(time_header + "\n")
