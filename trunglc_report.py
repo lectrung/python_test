@@ -95,4 +95,18 @@ plt.clf()
 sns.displot(x = "cpu_percent", data = df_os, bins = 200).set(title = "CPU Usage")
 plt.savefig(working_folder + "/graph/histogram1.png")
 
+plt.clf()
+sns.displot(x = "memory_percent", data = df_os, bins = 200).set(title = "Memory Usage")
+plt.savefig(working_folder + "/graph/histogram2.png")
+
+plt.clf()
+
+sns.displot(x = "disk_io_read", data = df_os, bins = 200).set(title = "Disk IO Read")
+plt.savefig(working_folder + "/graph/histogram3.png")
+
+plt.clf()
+
+sns.displot(x = "disk_io_write", data = df_os, bins = 200).set(title = "Disk IO Write")
+plt.savefig(working_folder + "/graph/histogram4.png")
+
 writelog("End the report")
