@@ -39,7 +39,9 @@ writelog("df_time shape:", df_time.shape)
 #writelog(df_time.columns)
 
 #Visualization
-sns.boxplot(x = "threads", y = "avg", data = df_summary);
+sns.lineplot(x = "threads", y = "avg", data = df_summary).set(title = "PG processing time by Parallel Threads")
+plt.xlabel("Number of parallel threads")
+plt.ylabel("Average PG processing time")
 plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
 
 writelog("End the report")
