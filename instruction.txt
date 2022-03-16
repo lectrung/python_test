@@ -1,0 +1,1 @@
+nohup sh run.sh > /python/log/test.txt&
