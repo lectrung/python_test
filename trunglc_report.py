@@ -14,7 +14,7 @@ list_thread_threshold = [5e3, 1e4, 5e4, 1e5, 2e5, 3e5, 1e6, 2e6]
 list_thread_threshold_title = ["Very Small", "Small", "Normal", "Medium", "High", "Large", "Very Large", "Huge"]
 
 lambda_threshold = lambda x : min([list_thread_threshold.index(t) for t in list_thread_threshold if t >= x])
-print(lambda_threshold(2000))
+#print(lambda_threshold(2000))
 
 def convert_to_K_unit(number):
     '''
@@ -74,9 +74,10 @@ sns.scatterplot(x = "threads", y = "time", hue = "thread_cat", data = df_time).s
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/report2.png")
 
-sns.displot(x = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
+sns.displot(x = "time", data = df_time, bins = 100).set(title = "PG processing time by Parallel Threads",
     xlabel = "PG processing time (ms)")
-plt.xlim(-10, 30000)
+plt.xlim(-10, 25000)
+plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/histogram.png")
 
 writelog("End the report")
