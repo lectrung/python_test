@@ -66,4 +66,8 @@ sns.scatterplot(x = "threads", y = "time", data = df_time).set(title = "PG proce
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/report2.png")
 
+sns.displot(x = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
+    xlabel = "PG processing time (ms)")
+plt.savefig(working_folder + "/graph/histogram.png")
+
 writelog("End the report")
