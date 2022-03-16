@@ -7,7 +7,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+x_label_rotation = 15
 working_folder = "/trunglc/git_workspace/python_test"
+
+def convert_to_K_unit(number):
+    '''
+    Convert long number to 1K, 2K, 3K, etc....
+    Parameters:
+    number : int
+        A positive number
+    '''
+    result = round(number / 1000)
+
+    return str(result) + "K"
 
 def writelog(*args):
     '''
@@ -42,7 +54,7 @@ writelog("df_time shape:", df_time.shape)
 sns.scatterplot(x = "threads", y = "avg", data = df_summary).set(title = "PG processing time by Parallel Threads", 
     xlabel = "Number of parallel threads",
     ylabel = "Average PG processing time (ms)")
-plt.xticks(rotation = 25)
+plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/report1.png")
 #plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
 
@@ -51,7 +63,7 @@ plt.clf()
 sns.scatterplot(x = "threads", y = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
     xlabel = "Number of parallel threads",
     ylabel = "PG processing time (ms)")
-plt.xticks(rotation = 25)
+plt.xticks(rotation = x_label_rotation)
 plt.savefig(working_folder + "/graph/report2.png")
 
 writelog("End the report")
