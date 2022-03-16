@@ -11,8 +11,8 @@ x_label_rotation = 15
 working_folder = "/trunglc/data"
 graph_folder = "/trunglc/git_workspace/python_test/graph"
 
-list_thread_threshold = [5e3, 1e4, 5e4, 1e5, 2e5, 3e5, 1e6, 2e6]
-list_thread_threshold_title = ["Very Small", "Small", "Normal", "Medium", "High", "Large", "Very Large", "Huge"]
+list_thread_threshold = [5e3, 1e4, 5e4, 1e5, 2e5, 3e5, 4e5, 4e6]
+list_thread_threshold_title = ["<5K", "5K-10K", "10K-50K", "50K-100K", "100K-200K", "200K-300K", "300K-400K", ">400K"]
 
 lambda_threshold = lambda x : min([list_thread_threshold.index(t) for t in list_thread_threshold if t >= x])
 #print(lambda_threshold(2000))
@@ -87,6 +87,24 @@ sns.scatterplot(x = "threads", y = "p_overload", hue = "thread_cat", data = df_s
 plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/overload.png")
+
+plt.clf()
+
+sns.scatterplot(x = "threads", y = "min", hue = "thread_cat", data = df_summary).set(title = "Min time (ms) by Parallel Threads",
+    xlabel = "Number of parallel threads",
+    ylabel = "Min time (ms)")
+plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.xticks(rotation = x_label_rotation)
+plt.savefig(graph_folder + "/min.png")
+
+plt.clf()
+
+sns.scatterplot(x = "threads", y = "max", hue = "thread_cat", data = df_summary).set(title = "Max time (ms) by Parallel Threads",
+    xlabel = "Number of parallel threads",
+    ylabel = "Max time (ms)")
+plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.xticks(rotation = x_label_rotation)
+plt.savefig(graph_folder + "/max.png")
 
 plt.clf()
 
