@@ -225,7 +225,7 @@ def writelog(*args):
     args : str
         The text message need to be logged
     '''
-    log_file = "/python/log/log.txt"
+    log_file = "/trunglc/git_workspace/python_test/log/log.txt"
     print(*args)
     with open(log_file, 'a') as f:
         for x in args:

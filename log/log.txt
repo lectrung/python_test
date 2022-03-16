@@ -1,0 +1,9 @@
+Start the test ...
+Run test script from: 1000 to: 10001 step:20
+CPU threshold = 60
+Memory thresold = 60
+{'threads': 1000, 'errors': 0, 'overloads': 1, 'max': 1244.896, 'min': 0.622, 'avg': 326.80460600000004, 'cpu_count': 2, 'cpu_percent': 60.7, 'memory_percent': 9.4, 'disk_io_read': 301216, 'disk_io_write': 56116}
+{'threads': 1020, 'errors': 0, 'overloads': 23, 'max': 1262.511, 'min': 1.711, 'avg': 482.7088539215686, 'cpu_count': 2, 'cpu_percent': 62.4, 'memory_percent': 9.5, 'disk_io_read': 301216, 'disk_io_write': 56116}
+{'threads': 1040, 'errors': 0, 'overloads': 16, 'max': 1216.53, 'min': 0.808, 'avg': 343.4147144230769, 'cpu_count': 2, 'cpu_percent': 63.0, 'memory_percent': 9.5, 'disk_io_read': 301216, 'disk_io_write': 56123}
+{'threads': 1060, 'errors': 0, 'overloads': 16, 'max': 1384.58, 'min': 0.75, 'avg': 401.7891584905661, 'cpu_count': 2, 'cpu_percent': 63.8, 'memory_percent': 9.5, 'disk_io_read': 301216, 'disk_io_write': 56123}
+{'threads': 1080, 'errors': 0, 'overloads': 13, 'max': 1357.2, 'min': 0.833, 'avg': 454.9224675925926, 'cpu_count': 2, 'cpu_percent': 62.3, 'memory_percent': 9.5, 'disk_io_read': 301216, 'disk_io_write': 56125}

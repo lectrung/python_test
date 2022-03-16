@@ -2,7 +2,7 @@
 Author: TrungLC
 Created Date: 16th Mar 2022
 This script take overview of the database PG
-Output to text file: /python/output/db.txt
+Output to text file: /trunglc/git_workspace/python_test/output/db.txt
 Format output file: total rows and size (in bytes) of 1 record stored in each line
 '''
 import sys

@@ -1,4 +1,4 @@
-nohup sh run.sh > /python/log/test.txt&
+nohup sh run.sh > log/run.txt&
 
 #For backup code
 
