@@ -43,6 +43,10 @@ def writelog(*args):
             f.write(str(x))
         f.write("\n")
 
+cpu_threshold = 80
+memory_threshold = 80
+thread_cat_title = "No of Threads"
+
 writelog("Start the report")
 #Load dataset from /python/output/*.csv
 df_summary = pd.read_csv(working_folder + "/summary.csv")
@@ -65,7 +69,7 @@ df_time["thread_cat"] = df_time.apply(lambda x: lambda_threshold(x["threads"]), 
 sns.scatterplot(x = "threads", y = "avg", hue = "thread_cat", data = df_summary).set(title = "PG processing time by Parallel Threads", 
     xlabel = "Number of parallel threads",
     ylabel = "Average PG processing time (ms)")
-plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = thread_cat_title, loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/line.png")
 #plt.savefig(working_folder + "/graph/report1.png", dpi = 300)
@@ -75,7 +79,7 @@ plt.clf()
 sns.scatterplot(x = "threads", y = "p_error", hue = "thread_cat", data = df_summary).set(title = "Error percent by Parallel Threads",
     xlabel = "Number of parallel threads",
     ylabel = "Error percent")
-plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = 'No of threads', loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/error.png")
 
@@ -84,7 +88,7 @@ plt.clf()
 sns.scatterplot(x = "threads", y = "p_overload", hue = "thread_cat", data = df_summary).set(title = "Overload percent by Parallel Threads",
             xlabel = "Number of parallel threads",
                 ylabel = "Overload percent")
-plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = thread_cat_title, loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/overload.png")
 
@@ -93,7 +97,7 @@ plt.clf()
 sns.scatterplot(x = "threads", y = "min", hue = "thread_cat", data = df_summary).set(title = "Min time (ms) by Parallel Threads",
     xlabel = "Number of parallel threads",
     ylabel = "Min time (ms)")
-plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = thread_cat_title, loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/min.png")
 
@@ -102,7 +106,7 @@ plt.clf()
 sns.scatterplot(x = "threads", y = "max", hue = "thread_cat", data = df_summary).set(title = "Max time (ms) by Parallel Threads",
     xlabel = "Number of parallel threads",
     ylabel = "Max time (ms)")
-plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = thread_cat_title, loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/max.png")
 
@@ -111,7 +115,7 @@ plt.clf()
 sns.boxplot(x = "thread_cat", y = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
     xlabel = "Number of parallel threads",
     ylabel = "PG processing time (ms)")
-plt.legend(title = 'thread', loc = 'upper left', labels = list_thread_threshold_title)
+plt.legend(title = thread_cat_title, loc = 'upper left', labels = list_thread_threshold_title)
 plt.xticks(rotation = x_label_rotation)
 plt.savefig(graph_folder + "/boxplot.png")
 
@@ -119,7 +123,7 @@ plt.clf()
 
 sns.boxplot(y = "time", data = df_time).set(title = "PG processing time by Parallel Threads",
     ylabel = "PG processing time (ms)")
-plt.savefig(graph_folder + "/boxplot1.png")
+plt.savefig(graph_folder + "/time_boxplot.png")
 
 plt.clf()
 
@@ -127,27 +131,27 @@ sns.displot(x = "time", data = df_time, bins = 200).set(title = "PG processing t
     xlabel = "PG processing time (ms)")
 plt.xlim(-10, 25000)
 plt.xticks(rotation = x_label_rotation)
-plt.savefig(graph_folder + "/histogram.png")
+plt.savefig(graph_folder + "/time_histogram.png")
 
 plt.clf()
 
 sns.displot(x = "cpu_percent", data = df_os, bins = 200).set(title = "CPU Usage")
-plt.axvline(80, color='red')
-plt.savefig(graph_folder + "/histogram1.png")
+plt.axvline(cpu_threshold, color='red')
+plt.savefig(graph_folder + "/cpu_histogram.png")
 
 plt.clf()
 sns.displot(x = "memory_percent", data = df_os, bins = 200).set(title = "Memory Usage")
-plt.axvline(80, color='red')
-plt.savefig(graph_folder + "/histogram2.png")
+plt.axvline(memory_threshold, color='red')
+plt.savefig(graph_folder + "/memory_histogram.png")
 
 plt.clf()
 
 sns.displot(x = "disk_io_read", data = df_os, bins = 200).set(title = "Disk IO Read")
-plt.savefig(graph_folder + "/histogram3.png")
+plt.savefig(graph_folder + "/io_read_histogram.png")
 
 plt.clf()
 
 sns.displot(x = "disk_io_write", data = df_os, bins = 200).set(title = "Disk IO Write")
-plt.savefig(graph_folder + "/histogram4.png")
+plt.savefig(graph_folder + "/io_write_histogram.png")
 
 writelog("End the report")

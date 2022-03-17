@@ -1,5 +1,5 @@
 Start the report
-df_summary shape: (12, 11)
-df_os shape: (11698, 6)
-df_time shape: (39000, 2)
+df_summary shape: (26, 11)
+df_os shape: (112877, 6)
+df_time shape: (375000, 2)
 End the report
