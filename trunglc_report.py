@@ -46,6 +46,8 @@ def writelog(*args):
 cpu_threshold = 80
 memory_threshold = 80
 thread_cat_title = "No of Threads"
+#The customer will happy when the response time <= happy_time
+happy_time = 3000
 
 writelog("Start the report")
 #Load dataset from /python/output/*.csv
@@ -63,7 +65,11 @@ writelog("df_os shape:", df_os.shape)
 df_time = pd.read_csv(working_folder + "/time.csv")
 writelog("df_time shape:", df_time.shape)
 df_time["thread_cat"] = df_time.apply(lambda x: lambda_threshold(x["threads"]), axis=1)
-#writelog(df_time.columns)
+df_time["happy"] = df_time["time"] <= happy_time
+
+#df_time_group = df_time.groupby(["threads"])["happy"].count()
+#writelog(df_time.shape)
+#writelog(df_time_group)
 
 #Visualization
 sns.scatterplot(x = "threads", y = "avg", hue = "thread_cat", data = df_summary).set(title = "PG processing time by Parallel Threads", 
@@ -153,5 +159,10 @@ plt.clf()
 
 sns.displot(x = "disk_io_write", data = df_os, bins = 200).set(title = "Disk IO Write")
 plt.savefig(graph_folder + "/io_write_histogram.png")
+
+plt.clf()
+
+#df_time_group.set_index('threads').plot(kind='bar', stacked=True, color=['steelblue', 'red'])
+#plt.savefig(graph_folder + "/happy.png")
 
 writelog("End the report")

@@ -1,5 +1,8 @@
 Start the report
-df_summary shape: (26, 11)
-df_os shape: (112877, 6)
-df_time shape: (375000, 2)
-End the report
+df_summary shape: (35, 11)
+df_os shape: (688670, 6)
+df_time shape: (2295000, 2)
+Traceback (most recent call last):
+  File "/trunglc/git_workspace/python_test/trunglc_report.py", line 68, in <module>
+    df_time["happy"] = df["time"] <= happy_time
+NameError: name 'df' is not defined
