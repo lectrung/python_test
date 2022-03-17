@@ -43,3 +43,27 @@ Memory thresold = 80
 {'threads': 400000, 'errors': 0, 'overloads': 1606, 'max': 636694.795, 'min': 0.656, 'avg': 1220.0830610475005, 'cpu_count': 2, 'cpu_percent': 99.6, 'memory_percent': 30.2, 'disk_io_read': 75373049, 'disk_io_write': 726634138}
 Max threads:400000 errors:0
 End the test. Time elapsed: 6743357.798 ms!
+Start the test ...
+Run test script from: 500 to: 400001
+CPU threshold = 80
+Memory thresold = 80
+{'threads': 500, 'errors': 0, 'overloads': 0, 'max': 314.124, 'min': 0.742, 'avg': 130.56959400000002, 'cpu_count': 2, 'cpu_percent': 39.4, 'memory_percent': 9.0, 'disk_io_read': 302178, 'disk_io_write': 151999}
+{'threads': 1000, 'errors': 0, 'overloads': 0, 'max': 1350.13, 'min': 0.773, 'avg': 404.648426, 'cpu_count': 2, 'cpu_percent': 60.8, 'memory_percent': 9.3, 'disk_io_read': 302178, 'disk_io_write': 151999}
+{'threads': 1500, 'errors': 0, 'overloads': 0, 'max': 2021.168, 'min': 0.632, 'avg': 767.870908, 'cpu_count': 2, 'cpu_percent': 67.8, 'memory_percent': 9.6, 'disk_io_read': 302178, 'disk_io_write': 152006}
+{'threads': 2000, 'errors': 0, 'overloads': 0, 'max': 2724.994, 'min': 0.6449999999999999, 'avg': 1246.5565315000001, 'cpu_count': 2, 'cpu_percent': 73.0, 'memory_percent': 10.0, 'disk_io_read': 302178, 'disk_io_write': 152014}
+{'threads': 2500, 'errors': 0, 'overloads': 0, 'max': 2942.6079999999997, 'min': 0.612, 'avg': 1266.4497552, 'cpu_count': 2, 'cpu_percent': 79.8, 'memory_percent': 10.3, 'disk_io_read': 302178, 'disk_io_write': 16270416}
+{'threads': 3000, 'errors': 0, 'overloads': 213, 'max': 3826.3959999999997, 'min': 0.618, 'avg': 1750.5947756666665, 'cpu_count': 2, 'cpu_percent': 89.1, 'memory_percent': 10.6, 'disk_io_read': 302178, 'disk_io_write': 16270533}
+{'threads': 3500, 'errors': 0, 'overloads': 331, 'max': 5248.9169999999995, 'min': 0.64, 'avg': 2524.2738834285715, 'cpu_count': 2, 'cpu_percent': 94.0, 'memory_percent': 11.1, 'disk_io_read': 302178, 'disk_io_write': 28292756}
+{'threads': 4000, 'errors': 0, 'overloads': 565, 'max': 6745.857, 'min': 0.633, 'avg': 3455.8554300000005, 'cpu_count': 2, 'cpu_percent': 96.5, 'memory_percent': 11.4, 'disk_io_read': 302178, 'disk_io_write': 69992551}
+{'threads': 4500, 'errors': 0, 'overloads': 755, 'max': 9185.313, 'min': 0.71, 'avg': 4871.474348444444, 'cpu_count': 2, 'cpu_percent': 94.9, 'memory_percent': 11.8, 'disk_io_read': 302178, 'disk_io_write': 118693683}
+{'threads': 5000, 'errors': 0, 'overloads': 728, 'max': 8634.335000000001, 'min': 0.734, 'avg': 3970.6916236, 'cpu_count': 2, 'cpu_percent': 94.8, 'memory_percent': 11.9, 'disk_io_read': 302178, 'disk_io_write': 155070202}
+{'threads': 5500, 'errors': 0, 'overloads': 608, 'max': 8624.359999999999, 'min': 0.696, 'avg': 3387.3699121818177, 'cpu_count': 2, 'cpu_percent': 95.7, 'memory_percent': 11.7, 'disk_io_read': 302178, 'disk_io_write': 155070210}
+{'threads': 6000, 'errors': 0, 'overloads': 710, 'max': 11050.714, 'min': 0.6669999999999999, 'avg': 4770.456249000001, 'cpu_count': 2, 'cpu_percent': 96.5, 'memory_percent': 12.2, 'disk_io_read': 302178, 'disk_io_write': 201952565}
+{'threads': 6500, 'errors': 0, 'overloads': 644, 'max': 11322.436, 'min': 0.6890000000000001, 'avg': 4259.152018307693, 'cpu_count': 2, 'cpu_percent': 97.7, 'memory_percent': 11.9, 'disk_io_read': 302178, 'disk_io_write': 201952577}
+{'threads': 7000, 'errors': 0, 'overloads': 641, 'max': 12743.213000000002, 'min': 0.6930000000000001, 'avg': 4218.489817857143, 'cpu_count': 2, 'cpu_percent': 96.4, 'memory_percent': 11.8, 'disk_io_read': 302178, 'disk_io_write': 258760573}
+{'threads': 7500, 'errors': 0, 'overloads': 673, 'max': 76478.201, 'min': 0.6769999999999999, 'avg': 26243.588252933336, 'cpu_count': 2, 'cpu_percent': 99.8, 'memory_percent': 12.1, 'disk_io_read': 302178, 'disk_io_write': 277809238}
+{'threads': 8000, 'errors': 0, 'overloads': 1044, 'max': 13078.778, 'min': 0.7010000000000001, 'avg': 4336.284718499999, 'cpu_count': 2, 'cpu_percent': 97.5, 'memory_percent': 12.3, 'disk_io_read': 302178, 'disk_io_write': 323070079}
+{'threads': 8500, 'errors': 0, 'overloads': 539, 'max': 11088.478000000001, 'min': 0.642, 'avg': 2889.3017668235293, 'cpu_count': 2, 'cpu_percent': 89.4, 'memory_percent': 11.8, 'disk_io_read': 302178, 'disk_io_write': 323070086}
+{'threads': 9000, 'errors': 0, 'overloads': 924, 'max': 14920.28, 'min': 0.6930000000000001, 'avg': 4333.142100555557, 'cpu_count': 2, 'cpu_percent': 96.0, 'memory_percent': 12.3, 'disk_io_read': 302178, 'disk_io_write': 351579747}
+{'threads': 9500, 'errors': 0, 'overloads': 636, 'max': 14035.634, 'min': 0.6970000000000001, 'avg': 3671.210508105263, 'cpu_count': 2, 'cpu_percent': 94.2, 'memory_percent': 12.3, 'disk_io_read': 302178, 'disk_io_write': 375832050}
+{'threads': 10000, 'errors': 0, 'overloads': 2415, 'max': 112705.746, 'min': 0.6629999999999999, 'avg': 28559.2568156, 'cpu_count': 2, 'cpu_percent': 100.0, 'memory_percent': 13.3, 'disk_io_read': 302178, 'disk_io_write': 403792752}

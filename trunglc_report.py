@@ -132,10 +132,12 @@ plt.savefig(graph_folder + "/histogram.png")
 plt.clf()
 
 sns.displot(x = "cpu_percent", data = df_os, bins = 200).set(title = "CPU Usage")
+plt.axvline(80, color='red')
 plt.savefig(graph_folder + "/histogram1.png")
 
 plt.clf()
 sns.displot(x = "memory_percent", data = df_os, bins = 200).set(title = "Memory Usage")
+plt.axvline(80, color='red')
 plt.savefig(graph_folder + "/histogram2.png")
 
 plt.clf()

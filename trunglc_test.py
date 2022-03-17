@@ -199,7 +199,7 @@ def check_db(url, index, n_threads):
     pg = PG(url)
     #if has error, increase the n_errors and maybe stop the iter
     if pg.error > 0:
-        n_errors += n_errors
+        n_errors += 1
 
     if min_time > pg.time or min_time == 0:
         min_time = pg.time
