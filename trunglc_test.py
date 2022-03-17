@@ -114,6 +114,25 @@ def merge_two_dicts(x, y):
     z.update(y)
     return z
 
+def get_random_url_list(n):
+    global connection
+    result = []
+    try:
+        cursor = connection.cursor()
+        sql = "SELECT * FROM sharding WHERE random() < 0.01 limit {n}".format(n = n)
+        cursor.execute(sql)
+        fetch_records = cursor.fetchall()
+
+        for row in fetch_records:
+            result.append(str(row[0]))
+
+        return result
+    except:
+        print("DB connect failed")
+    finally:
+        if connection:
+            cursor.close()
+
 class PG:
     """Store the list of Sharding Item base on URL"""
     def __init__(self, url):
@@ -129,7 +148,8 @@ class PG:
         try:
             dbStart = datetime.now()
             cursor = connection.cursor()
-            sql = "SELECT * FROM sharding WHERE url_hash = '\\x{url}'".format(url = url)
+            #sql = "SELECT * FROM sharding WHERE url_hash = '\\x{url}'".format(url = url)
+            sql = "SELECT * FROM sharding WHERE url_hash = '{url}'".format(url = url)
             cursor.execute(sql)
             fetch_records = cursor.fetchall()
 
@@ -161,7 +181,7 @@ def get_random_URL():
 
     return list
 
-def check_db(url, index, n_threads):
+def check_db(index, n_threads):
     """
     Do the task 01 for a specific URL
     Parameters:
@@ -182,6 +202,7 @@ def check_db(url, index, n_threads):
     global ratio_threshold
     global list_times
     global list_env
+    global list_random_100
 
     random_number = random.randint(1, 100)
 
@@ -196,6 +217,7 @@ def check_db(url, index, n_threads):
         if lambda_overload(server_env, cpu_threshold, memory_threshold):
             n_overloads += 1
 
+    url = random.choice(list_random_100)
     pg = PG(url)
     #if has error, increase the n_errors and maybe stop the iter
     if pg.error > 0:
@@ -248,6 +270,11 @@ writelog("Start the test ...")
 cpu_count = os.cpu_count()
 
 connect_db()
+
+list_random_100 = get_random_url_list(100)
+writelog(list_random_100)
+writelog(random.choice(list_random_100))
+
 import_folder = "/home"
 list_import_files = glob.glob(import_folder + "/*.csv")
 total_import_files = len(list_import_files)
@@ -287,7 +314,7 @@ while True:
 #This below code will choose a random csv from /home mountpoint and choose some random URL
 #url = get_random_URL()
 #I reboot the Server and I don't know why the /home mountpoint is lost. So I have to assign the test url manually
-url = "18b0ba4e3980"
+#url = "18b0ba4e3980"
 n_errors = 0
 n_overloads = 0
 min_time = 0
@@ -330,7 +357,7 @@ for n_threads in list_thread_per_second:
 
     #Create thread that connect to PG
     for i in range(1, n_threads + 1):
-        t = threading.Timer(1, check_db, [url, i, n_threads])
+        t = threading.Timer(1, check_db, [i, n_threads])
         threads.append(t)
 
     [t.start() for t in threads]
